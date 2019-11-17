@@ -6,7 +6,7 @@ import java.util.function.IntFunction;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class ProjectOne {
+public class ProjectOne<result> {
 
     /**
      * You have string "number", get each character from the string and return the char array
@@ -15,7 +15,7 @@ public class ProjectOne {
     public char[] getChars(String number) {
         char[] eachWord = {};
         // write your code here
-
+eachWord=number.toCharArray();
 
         // end of code
         return eachWord;
@@ -30,6 +30,7 @@ public class ProjectOne {
         // write your code here
 
 
+       eachWord = sentence.split (" ");
         // end of code
         return eachWord;
     }
@@ -43,11 +44,18 @@ public class ProjectOne {
     public int total(ArrayList<Integer> myList) {
         int total = Integer.MIN_VALUE;
         // write your code here
+        total = 0;
+        for (int i : myList) {
+            total += i;
+        }
+        return total;
+    }
+
 
 
         // end of code
-        return total;
-    }
+
+
 
     /**
      * Calculate sum of even numbers
@@ -59,7 +67,10 @@ public class ProjectOne {
     public int evenTotal(ArrayList<Integer> myList) {
         int total = 0;
         // write your code here
-
+        for (Integer i : myList) {
+            if (i%2==0)
+            total += i;
+        }
 
         // end of code
         return total;
@@ -75,7 +86,10 @@ public class ProjectOne {
     public int oddTotal(ArrayList<Integer> myList) {
         int total = 0;
         // write your code here
-
+        for (Integer i : myList) {
+            if (i%2!=0)
+                total += i;
+        }
 
         // end of code
         return total;
@@ -87,7 +101,7 @@ public class ProjectOne {
     public String getUpperCase(String name) {
         String upperCaseName = null;
         // write your code here
-
+        upperCaseName= name.toUpperCase();
 
         // end of code
         return upperCaseName;
@@ -99,7 +113,7 @@ public class ProjectOne {
     public String getLowerCase(String name) {
         String lowerCaseName = null;
         // write your code here
-
+        lowerCaseName=name.toLowerCase();
 
         // end of code
         return lowerCaseName;
@@ -112,7 +126,7 @@ public class ProjectOne {
     public String convertToString(int number) {
         String result = "";
         // write your code here
-
+        result=Integer.toString(number);
 
         // end of code
         return result;
@@ -125,7 +139,7 @@ public class ProjectOne {
     public String getFirst3Letters(String word) {
         String result = null;
         // write your code here
-
+        result = word.substring(0,3);
 
         // end of code
         return result;
@@ -138,7 +152,7 @@ public class ProjectOne {
     public String getLast2Letters(String word) {
         String result = "";
         // write your code here
-
+        result : word.substring(word.length() - 2);
 
         // end of code
         return result;
@@ -151,7 +165,9 @@ public class ProjectOne {
     public boolean compareIntAndString(int a, String b) {
         boolean result = false;
         // write your code here
-
+        if( a == Integer.valueOf(b)){
+            result= true;
+        }
 
         // end of code
         return result;
@@ -163,7 +179,7 @@ public class ProjectOne {
     public String removeWhiteSpacesAround(String str) {
         String result = null;
         // write your code here
-
+        result = str.trim();
 
         // end of code
         return result;
@@ -176,6 +192,8 @@ public class ProjectOne {
     public List<Integer> multipliedBy2(List<Integer> numbers) {
         List<Integer> result = new ArrayList<>();
         // write your code here
+        numbers.replaceAll(n -> n * 2);
+        result=numbers;
 
 
         // end of code
@@ -190,10 +208,14 @@ public class ProjectOne {
         List<String> result = new ArrayList<>();
         // write your code here
 
+        words.replaceAll(n -> n +n);
+        result=words;
 
         // end of code
         return result;
     }
+
+        // end of code
 
     /**
      * Check if array has duplicates
@@ -201,8 +223,13 @@ public class ProjectOne {
     public boolean hasDuplicates(Character[] characters) {
         boolean result = false;
         // write your code here
-
-
+        for (int i = 0; i < characters.length; i++) {
+            for (int j = i + 1; j < characters.length; j++) {
+                if (characters[i].equals(characters[j])) {
+                    result =true;
+                }
+            }
+        }
         // end of code
         return result;
     }
